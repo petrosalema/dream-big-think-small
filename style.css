@@ -1,0 +1,27 @@
+* { 
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+html, body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	color: 111;
+}
+a {
+	color: #333;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+.centered {
+	display: table;
+}
+.centered>:first-child {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
