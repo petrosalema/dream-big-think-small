@@ -8,10 +8,11 @@ html, body {
 	padding: 0;
 	width: 100%;
 	height: 100%;
-	color: 111;
+	color: whitesmoke;
+	background: #17181a;
 }
 a {
-	color: #333;
+	color: whitesmoke;
 	text-decoration: none;
 }
 a:hover {
