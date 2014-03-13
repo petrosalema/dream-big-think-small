@@ -1,3 +1,13 @@
+@font-face {
+	font-family: 'helvetica';
+	font-weight: 400;
+	src: url('fonts/helvetica-light.woff') format('woff');
+}
+@font-face {
+	font-family: 'helvetica';
+	font-weight: 700;
+	src: url('fonts/helvetica-bold.woff') format('woff');
+}
 * { 
 	-webkit-box-sizing: border-box;
 	   -moz-box-sizing: border-box;
@@ -8,15 +18,13 @@ html, body {
 	padding: 0;
 	width: 100%;
 	height: 100%;
-	color: whitesmoke;
-	background: #17181a;
+	font: 30px/1em helvetica, sans-serif;
+	color: #fff;
+	background: #fff;
 }
 a {
-	color: whitesmoke;
+	color: #fff;
 	text-decoration: none;
-}
-a:hover {
-	text-decoration: underline;
 }
 .centered {
 	display: table;
@@ -25,4 +33,25 @@ a:hover {
 	display: table-cell;
 	vertical-align: middle;
 	text-align: center;
+}
+.bg {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+}
+.fg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 2;
+}
+.translucent {
+	opacity: 0.8;
+	filter: opacity(80);
 }
