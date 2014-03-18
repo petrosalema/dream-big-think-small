@@ -92,17 +92,40 @@
 		omx = mx = width - 1;
 		omy = my = height - 1;
 
+		var dot = document.querySelector('#dot');
+		var o = getOffsets(dot);
+		omx = mx = o.left + (dot.offsetWidth / 2);
+		omy = my = o.top + (dot.offsetHeight / 2);
+		
+		var started = false;
+
 		document.onmousemove = function (event) {
+			if (!started) {
+				started = true;
+				start(field);
+			}
 			var offset = getOffsets(canvas);
 			mx = event.clientX - offset.left;
 			my = event.clientY - offset.top;
 		};
 
+		setTimeout(function () {
+			if (!started) {
+				started = true;
+				start(field);
+			}
+			mx = width * 0.25;
+			my += 10 - Math.random() * 20;
+		}, 1000);
+
+		setTimeout(function () {
+			mx = width * 0.75;
+			my -= 10 - Math.random() * 20;
+		}, 1500);
+
 		var field = new FluidField(canvas);
 		field.setUICallback(prepareFrame);
 		field.setDisplayFunction(render);
 		field.setResolution(resolution, resolution * 2);
-
-		start(field);
 	}
 }());
