@@ -28,7 +28,7 @@
 	}
 
 	// shim layer with setTimeout fallback
-	var requestAnimFrame = (function () {
+	var requestAnimationFrame = (function () {
 		return window.requestAnimationFrame
 		    || window.webkitRequestAnimationFrame
 		    || window.mozRequestAnimationFrame
@@ -37,7 +37,7 @@
 
 	function update(field, step) {
 		field.update();
-		requestAnimFrame(step);
+		requestAnimationFrame(step);
 	}
 
 	function start(field) {
@@ -76,7 +76,7 @@
 
 	if (window.CanvasRenderingContext2D && !CanvasRenderingContext2D.createImageData) {
 		CanvasRenderingContext2D.prototype.createImageData = function (w,h) {
-			return this.getImageData(0,0,w,h);
+			return this.getImageData(0, 0, w, h);
 		}
 	}
 
@@ -88,40 +88,50 @@
 
 		var aspect = Math.round(width / height);
 
-		// Start at the bottom right of the screen
-		omx = mx = width - 1;
-		omy = my = height - 1;
-
-		var dot = document.querySelector('#dot');
-		var o = getOffsets(dot);
-		omx = mx = o.left + (dot.offsetWidth / 2);
-		omy = my = o.top + (dot.offsetHeight / 2);
-		
 		var started = false;
 
 		document.onmousemove = function (event) {
-			if (!started) {
-				started = true;
-				start(field);
-			}
 			var offset = getOffsets(canvas);
 			mx = event.clientX - offset.left;
 			my = event.clientY - offset.top;
+			if (!started) {
+				omx = mx;
+				omy = my;
+				started = true;
+				start(field);
+			}
 		};
 
-		setTimeout(function () {
+		var waypoints = [
+			{
+				x: width / 2,
+				y: height * 0.75
+			}, {
+				x: width / 2,
+				y: height * 0.25
+			}, {
+				x: width * 0.75,
+				y: height / 2
+			}, {
+				x: width * 0.25,
+				y: height / 2
+			}
+		];
+
+		function puff() {
 			if (!started) {
 				started = true;
 				start(field);
 			}
-			mx = width * 0.25;
-			my += 10 - Math.random() * 20;
-		}, 1000);
+			var point = waypoints.pop();
+			if (point) {
+				mx = point.x;
+				my = point.y;
+				setTimeout(puff, 1000);
+			}
+		}
 
-		setTimeout(function () {
-			mx = width * 0.75;
-			my -= 10 - Math.random() * 20;
-		}, 1500);
+		setTimeout(puff, 1000);
 
 		var field = new FluidField(canvas);
 		field.setUICallback(prepareFrame);

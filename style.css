@@ -56,8 +56,8 @@ a {
 	position: relative;
 	top: 0;
 	left: 0;
-	opacity: 0.85;
-	filter: opacity(85);
+	opacity: 0.9;
+	filter: opacity(90);
 }
 #dot {
 	position: relative;
