@@ -89,6 +89,8 @@
 		return window.requestAnimationFrame
 		    || window.webkitRequestAnimationFrame
 		    || window.mozRequestAnimationFrame
+		    || window.oRequestAnimationFrame
+		    || window.msRequestAnimationFrame
 		    || function (callback) {
 				window.setTimeout(callback, 1000 / 60);
 			};
@@ -125,22 +127,23 @@
 	}
 
 	function prepareFrame(field) {
-		if (isBetween(omx, 0, width) && isBetween(omy, 0, height)) {
-			var w = field.width();
-			var h = field.height();
-			var dx = mx - omx;
-			var dy = my - omy;
-			var length = Math.max(1, magnitude(dx, dy));
-			var i;
-			for (i = 0; i < length; i++) {
-				var x = (((omx + dx * (i / length)) / width) * w) | 0;
-				var y = (((omy + dy * (i / length)) / height) * h) | 0;
-				field.setVelocity(x, y, dx, dy);
-				field.setDensity(x, y, density);
-			}
-			omx = mx;
-			omy = my;
+		if (!isBetween(omx, 0, width) || !isBetween(omy, 0, height)) {
+			return;
 		}
+		var w = field.width();
+		var h = field.height();
+		var dx = mx - omx;
+		var dy = my - omy;
+		var length = Math.max(1, magnitude(dx, dy));
+		var i;
+		for (i = 0; i < length; i++) {
+			var x = (((omx + dx * (i / length)) / width) * w) | 0;
+			var y = (((omy + dy * (i / length)) / height) * h) | 0;
+			field.setVelocity(x, y, dx, dy);
+			field.setDensity(x, y, density);
+		}
+		omx = mx;
+		omy = my;
 	}
 
 	function start(field) {

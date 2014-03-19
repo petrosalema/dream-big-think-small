@@ -4,6 +4,15 @@
  * Desktop: @media (min-width: 1200px)
  * Tablet: @media (min-width: 768px) and (max-width: 979px)
  * Phone: @media (max-width: 767px)
+ *
+ * motion blur:
+ * -webkit-transform: scaleX(1.5) skewX(10deg);
+ *         transform: scaleX(1.5) skewX(10deg);
+ * -webkit-filter: blur(5px);
+ *    -moz-filter: blur(5px);
+ *     -ms-filter: blur(5px);
+ *      -o-filter: blur(5px);
+ *         filter: blur(5px);
  */
 
 @font-face {
@@ -32,16 +41,11 @@ html, body {
 	font: 30px/1em helvetica, sans-serif;
 	color: #fff;
 	background: #fff;
-	/*
-	color: #ddd;
-	background: #ddd;
-	*/
 	-webkit-transition: background 0.5s ease-out;
 	   -moz-transition: background 0.5s ease-out;
 	    -ms-transition: background 0.5s ease-out;
 	     -o-transition: background 0.5s ease-out;
 }
-
 
 a {
 	color: #fff;
@@ -94,11 +98,6 @@ a {
 	border-radius: 100px;
 	border: 5px solid #fff;
 	background: #fff;
-
-	/*
-	border-color: #ddd;
-	background: #ddd;
-	*/
 }
 .icons a:hover img {
 	background: #3c9;
