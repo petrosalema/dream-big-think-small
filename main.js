@@ -127,7 +127,7 @@
 	}
 
 	function prepareFrame(field) {
-		if (!isBetween(omx, 0, width) || !isBetween(omy, 0, height)) {
+		if (!isBetween(mx, 0, width) || !isBetween(my, 0, height)) {
 			return;
 		}
 		var w = field.width();
@@ -161,10 +161,10 @@
 		stopped = true;
 	}
 
-	function end(color, field) {
-		document.querySelector('body').style.background = color2str(color);
+	function end(color, canvas) {
+		document.body.style.background = color2str(color);
 		setTimeout(function () {
-			field.canvas.style.opacity = 0;
+			canvas.style.opacity = 0;
 		}, 500);
 	}
 
@@ -183,9 +183,9 @@
 
     function render(field) {
         var context = field.canvas.getContext('2d');
+		var touched = 0;
         var w = field.width();
         var h = field.height();
-		var touched = 0;
 		var x;
 		var y;
 		for (x = 0; x < w; x++) {
@@ -199,7 +199,7 @@
 			}
 		}
 		if (touched / (w * h) > 0.7) {
-			end(fg, field);
+			end(fg, field.canvas);
 		}
 		if (touched / (w * h) >= 0.9) {
 			stop();
@@ -213,12 +213,18 @@
 		width = parseInt(canvasStyle.width, 10);
 		height = parseInt(canvasStyle.height, 10);
 
-		var interacting = false;
+		var aspect = Math.round(width / height);
+		var field = new FluidField(canvas);
+		field.setUICallback(prepareFrame);
+		field.setDisplayFunction(render);
+		field.setResolution(resolution, resolution * aspect);
+
 		var interact = function (event) {
-			interacting = true;
 			var offset = getOffsets(canvas);
-			mx = event.clientX - offset.left;
-			my = event.clientY - offset.top;
+			var scrollLeft = window.pageXOffset - document.body.clientLeft;
+			var scrollTop  = window.pageYOffset - document.body.clientTop;
+			mx = event.clientX - offset.left + scrollLeft;
+			my = event.clientY - offset.top + scrollTop;
 			if (!running && !stopped) {
 				omx = mx;
 				omy = my;
@@ -228,12 +234,6 @@
 
 		document.onmousemove = interact;
 		document.onmousedown = interact;
-
-		var aspect = Math.round(width / height);
-		var field = new FluidField(canvas);
-		field.setUICallback(prepareFrame);
-		field.setDisplayFunction(render);
-		field.setResolution(resolution, resolution * aspect);
 
 		var waypoints = [
 			{
@@ -252,9 +252,6 @@
 		];
 
 		function puff() {
-			if (interacting) {
-				return;
-			}
 			var point = waypoints.pop();
 			if (point) {
 				mx = point.x;
@@ -269,5 +266,10 @@
 		}
 
 		setTimeout(puff, 1000);
+
+		setTimeout(function () {
+			end(fg, canvas);
+			setTimeout(stop, 2000);
+		}, 5000);
 	};
 }());
