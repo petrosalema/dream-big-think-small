@@ -208,7 +208,7 @@
 		height = parseInt(canvasStyle.height, 10);
 
 		var interacting = false;
-		document.onmousemove = function (event) {
+		var interact = function (event) {
 			interacting = true;
 			var offset = getOffsets(canvas);
 			mx = event.clientX - offset.left;
@@ -219,6 +219,9 @@
 				start(field);
 			}
 		};
+
+		document.onmousemove = interact;
+		document.onmousedown = interact;
 
 		var aspect = Math.round(width / height);
 		var field = new FluidField(canvas);
