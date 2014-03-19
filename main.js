@@ -7,9 +7,12 @@
 	var COMMA = /\s*,\s*/;
 
 	function color2str(color) {
-		return 'string' === typeof color[0]
-		     ? '#' + color.join('')
-			 : 'rgb(' + color.join(',') + ')';
+		if ('string' === typeof color[0]) {
+			return '#' + color.join('');
+		}
+		return (4 === color.length)
+		     ? 'rgba(' + color.join(',') + ')'
+		     : 'rgb('  + color.join(',') + ')';
 	}
 
 	function normalizeHex(hex) {
