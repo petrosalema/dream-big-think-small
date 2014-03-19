@@ -1,3 +1,11 @@
+/* `media queries
+ * --------------
+ * https://developer.mozilla.org/en-US/docs/CSS/Media_queries
+ * Desktop: @media (min-width: 1200px)
+ * Tablet: @media (min-width: 768px) and (max-width: 979px)
+ * Phone: @media (max-width: 767px)
+ */
+
 @font-face {
 	font-family: 'helvetica';
 	font-weight: 400;
@@ -33,6 +41,7 @@ html, body {
 	    -ms-transition: background 0.5s ease-out;
 	     -o-transition: background 0.5s ease-out;
 }
+
 
 a {
 	color: #fff;
@@ -105,4 +114,14 @@ a {
 	   -moz-transition: opacity 2s ease-out;
 	    -ms-transition: opacity 2s ease-out;
 	     -o-transition: opacity 2s ease-out;
+}
+
+@media (max-width: 767px) {
+	body {
+		font-size: 50px;
+	}
+	.icons img {
+		width: 100px;
+		height: 100px;
+	}
 }
