@@ -38,8 +38,9 @@ html, body {
 	margin: 0;
 	padding: 0;
 	cursor: default;
-	font: 30px/1em helvetica, sans-serif;
-	color: #fff;
+	font: 20px/1.5em helvetica, sans-serif;
+	letter-spacing: 0.02em;
+	color: #222;
 	background: #fff;
 	-webkit-transition: background 0.5s ease-out;
 	   -moz-transition: background 0.5s ease-out;
@@ -53,10 +54,25 @@ a {
 	outline: none;
 }
 
-section {
+header, section {
 	width: 100%;
 	min-height: 100%;
 	text-align: center;
+}
+section {
+	padding: 2em 0;
+}
+section>div {
+	margin: 1em auto 0;
+	width: 300px;
+	text-align: justify;
+	overflow: hidden;
+}
+section p {
+	margin: 0 0 1em;
+}
+section p:last-child {
+	margin-bottom: 0;
 }
 
 .centered {
@@ -85,6 +101,7 @@ section {
 	z-index: 2;
 	width: 100%;
 	height: 100%;
+	color: #fff;
 }
 
 .translucent {
@@ -95,23 +112,26 @@ section {
 	filter: opacity(90);
 }
 
-.links {
+nav {
 	margin-top: 20px;
 }
-.links a {
+nav a {
 	margin-left: 10px;
 	border: 5px solid #fff;
 	padding: 5px 15px;
 	font-weight: bold;
-	font-size: 0.6em;
 	white-space: nowrap;
 }
-.links a:hover {
+nav a:hover {
 	color: #3c9;
 	border-color: #3d9;
 }
 
-.icons {
+.center {
+	text-align: center;
+}
+
+.social {
 	position: absolute;
 	width: 100%;
 	bottom: 20px;
@@ -145,6 +165,10 @@ h1 {
 	margin: 0;
 	padding-top: 1em;
 	font-weight: normal;
+	font-size: 2em;
+}
+h1>div {
+	display: inline-block;
 }
 
 h2 {
@@ -152,12 +176,12 @@ h2 {
 	display: inline-block;
 	min-width: 300px;
 	max-width: 90%;
-	margin: 1em auto;
+	margin: 0 auto;
 	border: 8px solid #222;
 	padding: 15px;
 	text-align: center;
 	font-weight: bold;
-	color: #222;
+	font-size: 2em;
 	line-height: 1em;
 }
 h2 u {
@@ -181,9 +205,13 @@ h2 b:after {
 
 @media (max-width: 767px) {
 	body {
-		font-size: 50px;
+		font-size: 30px;
 	}
-	.icons {
+	h1>div {
+		display: block;
+		margin-bottom: 0.3em;
+	}
+	.social.icons {
 		position: relative;
 		bottom: auto;
 	}
@@ -191,7 +219,7 @@ h2 b:after {
 		width: 60px;
 		height: 60px;
 	}
-	.links a {
+	nav a {
 		display: block;
 		width: 50%;
 		min-width: 300px;
@@ -201,5 +229,9 @@ h2 b:after {
 	.centered, .centered>:first-child {
 		position: relative;
 		display: block;
+	}
+	section>div {
+		font-size: 0.8em;
+		width: 400px;
 	}
 }

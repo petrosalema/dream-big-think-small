@@ -112,11 +112,12 @@
 	var width;
 	var height;
 	var density = 100;
-	var resolution = window.fieldRes = 16 * 2;
+	var resolution = window.fieldRes = 16 * 3;
 	var bg = rgb('#fff');
 	var fg = rgb('#111');
 	var stopped = false;
 	var running = false;
+	var interacting = false;
 
 	function isBetween(value, min, max) {
 		return value >= min && value <= max;
@@ -130,6 +131,7 @@
 		if (!isBetween(mx, 0, width) || !isBetween(my, 0, height)) {
 			return;
 		}
+		interacting = true;
 		var w = field.width();
 		var h = field.height();
 		var dx = mx - omx;
@@ -162,7 +164,7 @@
 	}
 
 	function end(color, canvas) {
-		document.body.style.background = color2str(color);
+		canvas.parentNode.style.background = color2str(color);
 		setTimeout(function () {
 			canvas.style.opacity = 0;
 		}, 500);
@@ -198,20 +200,22 @@
 				}
 			}
 		}
-		if (touched / (w * h) > 0.7) {
+		if (touched / (w * h) > 0.8) {
 			end(fg, field.canvas);
 		}
-		if (touched / (w * h) >= 0.9) {
+		if (touched / (w * h) >= 0.95) {
 			stop();
 		}
     }
 
 	window.onload = function () {
 		var canvas = document.querySelector('#canvas');
-		var canvasStyle = getComputedStyle(canvas);
+		var style = getComputedStyle(canvas.parentNode);
 
-		width = parseInt(canvasStyle.width, 10);
-		height = parseInt(canvasStyle.height, 10);
+		width = parseInt(style.width, 10);
+		height = parseInt(style.height, 10);
+
+		canvas.style.height = height + 'px';
 
 		var aspect = Math.round(width / height);
 		var field = new FluidField(canvas);
@@ -220,12 +224,15 @@
 		field.setResolution(resolution, resolution * aspect);
 
 		var interact = function (event) {
+			if (stopped) {
+				return;
+			}
 			var offset = getOffsets(canvas);
 			var scrollLeft = window.pageXOffset - document.body.clientLeft;
 			var scrollTop  = window.pageYOffset - document.body.clientTop;
 			mx = event.clientX - offset.left + scrollLeft;
 			my = event.clientY - offset.top + scrollTop;
-			if (!running && !stopped) {
+			if (!running) {
 				omx = mx;
 				omy = my;
 				start(field);
@@ -252,6 +259,9 @@
 		];
 
 		function puff() {
+			if (interacting) {
+				return;
+			}
 			var point = waypoints.pop();
 			if (point) {
 				mx = point.x;
