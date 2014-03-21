@@ -54,6 +54,10 @@ a {
 	outline: none;
 }
 
+noscript {
+	background: #222;
+}
+
 header, section {
 	width: 100%;
 	min-height: 100%;
