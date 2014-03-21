@@ -117,7 +117,6 @@
 	var fg = rgb('#111');
 	var stopped = false;
 	var running = false;
-	var interacting = false;
 
 	function isBetween(value, min, max) {
 		return value >= min && value <= max;
@@ -131,7 +130,6 @@
 		if (!isBetween(mx, 0, width) || !isBetween(my, 0, height)) {
 			return;
 		}
-		interacting = true;
 		var w = field.width();
 		var h = field.height();
 		var dx = mx - omx;
@@ -223,10 +221,12 @@
 		field.setDisplayFunction(render);
 		field.setResolution(resolution, resolution * aspect);
 
+		var interacting = false;
 		var interact = function (event) {
 			if (stopped) {
 				return;
 			}
+			interacting = true;
 			var offset = getOffsets(canvas);
 			var scrollLeft = window.pageXOffset - document.body.clientLeft;
 			var scrollTop  = window.pageYOffset - document.body.clientTop;
@@ -285,18 +285,19 @@
 
 	if (window.console && 'function' === typeof window.console.log) {
 		var colophon = 'COLOPHON\n'
-		             + '~~~~~~~~\n'
+		             + '▬▬▬▬▬▬▬▬\n'
 		             + '\n'
-		             + 'Fluid Dynamics:\n'
-		             + ' • http://nerget.com/fluidSim/\n'
-		             + ' • https://code.google.com/p/javascript-fluid/\n'
-		             + ' • http://www.cs.ubc.ca/~rbridson/docs/brentw_msc.pdf\n'
-		             + ' • http://www.cs.ubc.ca/~rbridson/docs/batty-sca08-viscosity.pdf\n'
-		             + ' • http://www.cs.ubc.ca/~rbridson/docs/schechter-sca08-turbulence.pdf\n'
-		             + ' • http://www.dgp.toronto.edu/people/stam/reality/Research/pdf/GDC03.pdf\n'
-		             + ' • http://stackoverflow.com/questions/4893992/fluid-dynamic-simulation-with-obstacles\n'
+		             + ' ● Fluid Dynamics\n'
+		             + ' • www.nerget.com/fluidSim/\n'
+		             + ' • code.google.com/p/javascript-fluid/\n'
+		             + ' • www.cs.ubc.ca/~rbridson/docs/brentw_msc.pdf\n'
+		             + ' • www.cs.ubc.ca/~rbridson/docs/batty-sca08-viscosity.pdf\n'
+		             + ' • www.cs.ubc.ca/~rbridson/docs/schechter-sca08-turbulence.pdf\n'
+		             + ' • www.dgp.toronto.edu/people/stam/reality/Research/pdf/GDC03.pdf\n'
+		             + ' • www.stackoverflow.com/questions/4893992/fluid-dynamic-simulation-with-obstacles\n'
 		             + '\n'
-		             + 'Type: Helvetica';
+		             + ' ● Type Faces\n'
+					 + ' • Helvetica';
 		console.log(colophon);
 	}
 }());

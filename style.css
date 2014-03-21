@@ -40,7 +40,7 @@ html, body {
 	cursor: default;
 	font: 20px/1.5em helvetica, sans-serif;
 	letter-spacing: 0.02em;
-	color: #222;
+	color: #111;
 	background: #fff;
 	-webkit-transition: background 0.5s ease-out;
 	   -moz-transition: background 0.5s ease-out;
@@ -54,33 +54,93 @@ a {
 	outline: none;
 }
 
-noscript {
-	background: #222;
-}
+noscript { background: #111; }
 
 header, section {
 	width: 100%;
 	min-height: 100%;
 	text-align: center;
+	padding: 1em 0;
 }
-section {
-	padding: 2em 0;
-}
-section>div {
+section article {
 	margin: 1em auto 0;
 	width: 300px;
 	text-align: justify;
 	overflow: hidden;
 }
-section p {
-	margin: 0 0 1em;
+section p { margin: 0 0 1em; }
+section p:last-child { margin-bottom: 0; }
+
+nav { margin-top: 20px; }
+nav a {
+	margin-left: 10px;
+	border: 5px solid #fff;
+	padding: 5px 15px;
+	font-weight: bold;
+	white-space: nowrap;
 }
-section p:last-child {
-	margin-bottom: 0;
+nav a:hover {
+	color: #3c9;
+	border-color: #3d9;
+}
+nav a:active {
+	color: #fff;
+	background: #3c9;
+}
+
+::selection { background: #3c9; }
+::-moz-selection { background: #3c9; }
+
+h1 {
+	margin: 0;
+	font-weight: normal;
+	font-size: 2em;
+}
+h1>div { display: inline-block; }
+
+h2 {
+	position: relative;
+	display: inline-block;
+	min-width: 300px;
+	max-width: 80%;
+	margin: 0 auto;
+	border: 8px solid #111;
+	padding: 15px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 2em;
+	line-height: 1em;
+}
+h2 u {
+	position: relative;
+	top: -0.05em;
+	font-size: 0.9em;
+	vertical-align: top;
+}
+h2 b {
+	position: relative;
+	letter-spacing: 0;
+}
+h2 b:after {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: -0.1em;
+	content: ".";
+	text-align: center;
+}
+
+#canvas {
+	-webkit-transition: opacity 2s ease-out;
+	   -moz-transition: opacity 2s ease-out;
+	    -ms-transition: opacity 2s ease-out;
+	     -o-transition: opacity 2s ease-out;
 }
 
 .centered {
 	display: table;
+	width: 100%;
 }
 .centered>:first-child {
 	display: table-cell;
@@ -116,119 +176,37 @@ section p:last-child {
 	filter: opacity(90);
 }
 
-nav {
-	margin-top: 20px;
-}
-nav a {
-	margin-left: 10px;
-	border: 5px solid #fff;
-	padding: 5px 15px;
-	font-weight: bold;
-	white-space: nowrap;
-}
-nav a:hover {
-	color: #3c9;
-	border-color: #3d9;
-}
-
-.center {
-	text-align: center;
-}
+.small { font-size: 0.7em; }
+.center { text-align: center; }
 
 .social {
 	position: absolute;
 	width: 100%;
-	bottom: 20px;
+	bottom: 0;
+	margin: 1em 0;
 	text-align: center;
-}
-.icons img {
-	width: 40px;
-	height: 40px;
-	border-radius: 100px;
-	border: 5px solid #fff;
-	background: #fff;
 	opacity: 0.8;
+	filter: opacity(80);
 }
-.icons a:hover img {
-	background: #3c9;
-	border-color: #3d9;
+.icons { line-height: 0em; }
+.icons img {
+	width: 50px;
+	height: 50px;
+	border-radius: 100px;
+	padding: 5px;
+	background: #fff;
 }
-
-.small {
-	font-size: 0.7em;
-}
-
-#canvas {
-	-webkit-transition: opacity 2s ease-out;
-	   -moz-transition: opacity 2s ease-out;
-	    -ms-transition: opacity 2s ease-out;
-	     -o-transition: opacity 2s ease-out;
-}
-
-h1 {
-	margin: 0;
-	padding-top: 1em;
-	font-weight: normal;
-	font-size: 2em;
-}
-h1>div {
+.icons a {
 	display: inline-block;
+	border-radius: 100px;
 }
-
-h2 {
-	position: relative;
-	display: inline-block;
-	min-width: 300px;
-	max-width: 80%;
-	margin: 0 auto;
-	border: 8px solid #222;
-	padding: 15px;
-	text-align: center;
-	font-weight: bold;
-	font-size: 2em;
-	line-height: 1em;
-}
-h2 u {
-	position: relative;
-	top: -0.05em;
-	font-size: 0.9em;
-	vertical-align: top;
-}
-h2 b {
-	position: relative;
-	letter-spacing: 0;
-}
-h2 b:after {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	left: 0;
-	top: -0.1em;
-	content: ".";
-	text-align: center;
-}
+.icons a:hover img { background: #3c9; }
 
 @media (max-width: 767px) {
-	body {
-		font-size: 30px;
-	}
-	h1 {
-		margin-bottom: 1em;
-	}
+	body { font-size: 30px; }
 	h1>div {
 		display: block;
 		margin-bottom: 0.3em;
-	}
-	.social {
-		padding: 1em 0;
-	}
-	.social.icons {
-		position: relative;
-		bottom: auto;
-	}
-	.icons img {
-		width: 60px;
-		height: 60px;
 	}
 	nav a {
 		display: block;
@@ -237,13 +215,23 @@ h2 b:after {
 		margin: 1em auto;
 		border-width: 8px;
 	}
-	.centered, .centered>:first-child {
-		position: relative;
-		display: block;
-	}
-	section>div {
+	header { background: #111; }
+	section article {
 		font-size: 0.8em;
 		width: 400px;
 		max-width: 80%;
+	}
+	#canvas { display: none; }
+	.social.icons {
+		position: relative;
+		bottom: auto;
+	}
+	.icons img {
+		width: 60px;
+		height: 60px;
+	}
+	.centered, .centered>:first-child {
+		position: relative;
+		display: block;
 	}
 }
