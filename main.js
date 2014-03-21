@@ -282,4 +282,21 @@
 			setTimeout(stop, 2000);
 		}, 5000);
 	};
+
+	if (window.console && 'function' === typeof window.console.log) {
+		var colophon = 'COLOPHON\n'
+		             + '~~~~~~~~\n'
+		             + '\n'
+		             + 'Fluid Dynamics:\n'
+		             + ' • http://nerget.com/fluidSim/\n'
+		             + ' • https://code.google.com/p/javascript-fluid/\n'
+		             + ' • http://www.cs.ubc.ca/~rbridson/docs/brentw_msc.pdf\n'
+		             + ' • http://www.cs.ubc.ca/~rbridson/docs/batty-sca08-viscosity.pdf\n'
+		             + ' • http://www.cs.ubc.ca/~rbridson/docs/schechter-sca08-turbulence.pdf\n'
+		             + ' • http://www.dgp.toronto.edu/people/stam/reality/Research/pdf/GDC03.pdf\n'
+		             + ' • http://stackoverflow.com/questions/4893992/fluid-dynamic-simulation-with-obstacles\n'
+		             + '\n'
+		             + 'Type: Helvetica';
+		console.log(colophon);
+	}
 }());
