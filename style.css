@@ -78,14 +78,13 @@ article {
 	width: 400px;
 	text-align: justify;
 	overflow: hidden;
-	xpadding: 8px;
 	font-family: FCZizouSlab;
 }
 article p { margin: 0 0 1em; }
 article p:last-child { margin-bottom: 0; }
-article img {
-	width: 100%;
-}
+article img { width: 100%; }
+article a { color: #3c9; }
+article a:hover { text-decoration: underline; }
 
 nav { margin-top: 20px; }
 nav a {
@@ -212,9 +211,43 @@ h2 b:after {
 }
 .icons a:hover img { background: #3c9; }
 
-.flipcard {
+
+.card {
+	position: relative;
+	width: 400px;
+	height: 246px;
+	cursor: pointer;
+	overflow: hidden;
+}
+.card img {
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.card div {
 	position: relative;
 	width: 100%;
+	height: 100%;
+}
+.card .circle {
+	position: relative;
+	width: 120px;
+	height: 120px;
+	padding: 1em;
+	border-radius: 120px;
+	background: #111;
+	left: 140px;
+}
+article a .circle,
+article a:hover .circle {
+	color: #fff;
+	text-decoration: none;
+}
+
+.flipcard {
+	float: left;
+	position: relative;
+	width: 400px;
 	height: 246px;
 	cursor: pointer;
 	overflow: hidden;
@@ -243,27 +276,31 @@ h2 b:after {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	padding: 2em;
 	-webkit-transition: left 0.2s ease-out;
 	   -moz-transition: left 0.2s ease-out;
 	    -ms-transition: left 0.2s ease-out;
 	     -o-transition: left 0.2s ease-out;
 }
 .flipcard .front>div>div {
+	position: relative;
 	width: 120px;
 	height: 120px;
-	margin: 0 auto;
 	padding: 10px;
 	border-radius: 60px;
 	background: #111;
 	color: #fff;
-	line-height: 100px;
 	font-size: 0.9em;
-	text-transform: lowercase;
+	left: 140px;
 }
 .flipcard .back {
 	color: #fff;
 	opacity: 0;
+	padding: 2em;
+}
+
+.clear {
+	clear: both;
+	float: none;
 }
 
 @media (max-width: 767px) {
@@ -279,7 +316,7 @@ h2 b:after {
 		line-height: 1.5em;
 	}
 	header { background: #111; }
-	h2, article {
+	h2, article, .flipcard {
 		width: 100%;
 		max-width: 400px;
 	}
@@ -292,8 +329,5 @@ h2 b:after {
 		width: 60px;
 		height: 60px;
 	}
-	.centered, .centered>:first-child {
-		position: relative;
-		display: block;
-	}
+	.centered, .centered>:first-child { position: relative; }
 }

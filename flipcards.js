@@ -36,7 +36,7 @@
 		return state;
 	}
 
-	function flip(card, callback) {
+	function flip(card, callback, complete) {
 		var end = card.forwards ? 0 : 180;
 		var start = card.front.rotation.y;
 		var trigger = card.forwards ? 0.6: 0.3;
@@ -52,6 +52,9 @@
 				if (!finished && percent > trigger && 'function' === typeof callback) {
 					finished = true;
 					callback();
+				}
+				if (1 === percent) {
+					complete();
 				}
 			}
 		);
@@ -87,7 +90,6 @@
 
 		var img = flipcard.querySelector('img');
 		var frontTexture = img.src;
-		img.remove();
 
 		var front = new Uhuru.Plane3D(engine, w, h, 3, 3, frontTexture);
 		front.doubleSided = false;
@@ -111,7 +113,6 @@
 		engine.start(false);
 
 		canvas.style.position = 'absolute';
-		canvas.style.opacity = 1;
 
 		var card = {
 			front    : front,
@@ -132,6 +133,8 @@
 
 			frontside.style.left = -w + 'px';
 			backside.style.left = w + 'px';
+			img.style.opacity = 0;
+			canvas.style.opacity = 1;
 
 			state = flip(card, function () {
 				if (card.forwards) {
@@ -140,6 +143,11 @@
 				} else {
 					backside.style.opacity = 1;
 					backside.style.left = 0;
+				}
+			}, function () {
+				if (card.forwards) {
+					img.style.opacity = 1;
+					canvas.style.opacity = 0;
 				}
 			});
 		}, false);
