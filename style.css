@@ -48,7 +48,7 @@ html, body {
 	margin: 0;
 	padding: 0;
 	cursor: default;
-	font: 18px/1.5em FCZizouSlab, sans-serif;
+	font: 18px/1.5em helvetica, sans-serif;
 	letter-spacing: 0.05em;
 	color: #111;
 	background: #fff;
@@ -78,6 +78,8 @@ article {
 	width: 400px;
 	text-align: justify;
 	overflow: hidden;
+	padding: 8px;
+	font-family: FCZizouSlab;
 }
 article p { margin: 0 0 1em; }
 article p:last-child { margin-bottom: 0; }
@@ -88,7 +90,6 @@ nav a {
 	border: 5px solid #fff;
 	padding: 5px 15px;
 	font-weight: bold;
-	font-family: helvetica;
 	white-space: nowrap;
 }
 nav a:hover {
@@ -105,7 +106,6 @@ nav a:active {
 
 h1, h2 {
 	font-size: 40px;
-	font-family: helvetica;
 	letter-spacing: 0em;
 	line-height: 1em;
 	margin: 0 auto;
@@ -119,7 +119,7 @@ h2 {
 	position: relative;
 	display: inline-block;
 	width: 400px;
-	padding: 15px;
+	padding: 15px 0;
 	border: 8px solid #111;
 	font-weight: bold;
 }
@@ -224,7 +224,7 @@ h2 b:after {
 	}
 	header { background: #111; }
 	h2, article {
-		width: auto;
+		width: 100%;
 		max-width: 400px;
 	}
 	#canvas { display: none; }
