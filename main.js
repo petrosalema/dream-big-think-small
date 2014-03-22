@@ -1,88 +1,6 @@
 (function () {
 	'use strict';
 
-	// --- `colors ---
-
-	var COLOR_PREFIX = /^(#|rgba?|hsl)\(?([^\(\)]+)/i;
-	var COMMA = /\s*,\s*/;
-
-	function color2str(color) {
-		if ('string' === typeof color[0]) {
-			return '#' + color.join('');
-		}
-		return (4 === color.length)
-		     ? 'rgba(' + color.join(',') + ')'
-		     : 'rgb('  + color.join(',') + ')';
-	}
-
-	function normalizeHex(hex) {
-		var r, g, b;
-		if (4 === hex.length) {
-			r = hex.substr(1, 1);
-			g = hex.substr(2, 1);
-			b = hex.substr(3, 1);
-			r += r;
-			g += g;
-			b += b;
-		} else {
-			r = hex.substr(1, 2);
-			g = hex.substr(3, 4);
-			b = hex.substr(5, 6);
-		}
-		return [r, g, b];
-	}
-
-	function rgb2hex(rgb) {
-		return rgb.reduce(function (values, value) {
-			var color = parseInt(value, 10).toString(16);
-			return values.concat(1 === color.length ? color + color : color);
-		}, []);
-	}
-
-	function hex2rgb(hex) {
-		return normalizeHex(hex).reduce(function (values, value) {
-			return values.concat(parseInt(value, 16));
-		}, []);
-	}
-
-	function hex(value) {
-		var color = value.match(COLOR_PREFIX);
-		switch (color && color[1]) {
-		case '#':
-			return normalizeHex(color[0]);
-		case 'rgb':
-		case 'rgba':
-			return rgb2hex(color[2].split(COMMA));
-		}
-	}
-
-	function rgb(value) {
-		var color = value.match(COLOR_PREFIX);
-		switch (color && color[1]) {
-		case '#':
-			return hex2rgb(color[0]);
-		case 'rgb':
-		case 'rgba':
-			return color[2].split(COMMA).reduce(function (values, value) {
-				return values.concat(parseInt(value, 10));
-			}, []);
-		}
-	}
-
-	function crossColors(from, to, percent) {
-		var r = to[0] - from[0];
-		var g = to[1] - from[1];
-		var b = to[2] - from[2];
-		return [
-			from[0] + Math.round(r * percent),
-			from[1] + Math.round(g * percent),
-			from[2] + Math.round(b * percent)
-		];
-	}
-
-	// --- /colors ---
-
-
 	// --- `polyfills ---
 
 	var requestAnimationFrame = (function () {
@@ -113,10 +31,11 @@
 	var height;
 	var density = 100;
 	var resolution = window.fieldRes = 16 * 3;
-	var bg = rgb('#fff');
-	var fg = rgb('#111');
+	var bg = Colors.rgb('#fff');
+	var fg = Colors.rgb('#111');
 	var stopped = false;
 	var running = false;
+	var paused = false;
 
 	function isBetween(value, min, max) {
 		return value >= min && value <= max;
@@ -127,7 +46,7 @@
 	}
 
 	function prepareFrame(field) {
-		if (!isBetween(mx, 0, width) || !isBetween(my, 0, height)) {
+		if (paused || !isBetween(mx, 0, width) || !isBetween(my, 0, height)) {
 			return;
 		}
 		var w = field.width();
@@ -162,7 +81,7 @@
 	}
 
 	function end(color, canvas) {
-		canvas.parentNode.style.background = color2str(color);
+		canvas.parentNode.style.background = Colors.toString(color);
 		setTimeout(function () {
 			canvas.style.opacity = 0;
 		}, 500);
@@ -182,6 +101,9 @@
 	}
 
     function render(field) {
+		if (paused) {
+			return;
+		}
         var context = field.canvas.getContext('2d');
 		var touched = 0;
         var w = field.width();
@@ -191,7 +113,7 @@
 		for (x = 0; x < w; x++) {
 			for (y = 0; y < h; y++) {
 				var intensity = Math.min(1, field.getDensity(x, y));
-				context.fillStyle = color2str(crossColors(bg, fg, intensity));
+				context.fillStyle = Colors.toString(Colors.cross(bg, fg, intensity));
 				context.fillRect(x, y, 1, 1);
 				if (intensity >= 0.9) {
 					touched++;
@@ -226,10 +148,16 @@
 			if (stopped) {
 				return;
 			}
-			interacting = true;
-			var offset = getOffsets(canvas);
 			var scrollLeft = window.pageXOffset - document.body.clientLeft;
 			var scrollTop  = window.pageYOffset - document.body.clientTop;
+
+			paused = scrollTop > height;
+
+			if (paused) {
+				return;
+			}
+
+			var offset = getOffsets(canvas);
 			mx = event.clientX - offset.left + scrollLeft;
 			my = event.clientY - offset.top + scrollTop;
 			if (!running) {
@@ -237,6 +165,7 @@
 				omy = my;
 				start(field);
 			}
+			interacting = true;
 		};
 
 		document.onmousemove = interact;
@@ -281,6 +210,9 @@
 			end(fg, canvas);
 			setTimeout(stop, 2000);
 		}, 5000);
+
+		var flipcards = [].slice.call(document.querySelectorAll('.flipcard'));
+		flipcards.forEach(Flipcards.create);
 	};
 
 	if (window.console && 'function' === typeof window.console.log) {
