@@ -297,7 +297,8 @@
 		             + ' • www.stackoverflow.com/questions/4893992/fluid-dynamic-simulation-with-obstacles\n'
 		             + '\n'
 		             + ' ● Type Faces\n'
-					 + ' • Helvetica';
+					 + ' • Title/Headings: Helvetica\n'
+					 + ' • Content: FastCompany\'s Zizou Slab\n';
 		console.log(colophon);
 	}
 }());

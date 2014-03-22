@@ -25,6 +25,16 @@
 	font-weight: 700;
 	src: url('fonts/helvetica-bold.woff') format('woff');
 }
+@font-face {
+	font-family: 'FCZizouSlab';
+	font-weight: 400;
+	src: url('fonts/fczizou-slab-light.woff') format('woff');
+}
+@font-face {
+	font-family: 'FCZizouSlab';
+	font-weight: 700;
+	src: url('fonts/fczizou-slab-bold.woff') format('woff');
+}
 
 * { 
 	-webkit-box-sizing: border-box;
@@ -38,8 +48,8 @@ html, body {
 	margin: 0;
 	padding: 0;
 	cursor: default;
-	font: 20px/1.5em helvetica, sans-serif;
-	letter-spacing: 0.02em;
+	font: 18px/1.5em FCZizouSlab, sans-serif;
+	letter-spacing: 0.05em;
 	color: #111;
 	background: #fff;
 	-webkit-transition: background 0.5s ease-out;
@@ -60,16 +70,17 @@ header, section {
 	width: 100%;
 	min-height: 100%;
 	text-align: center;
-	padding: 1em 0;
+	padding: 1em;
 }
-section article {
+
+article {
 	margin: 1em auto 0;
-	width: 300px;
+	width: 400px;
 	text-align: justify;
 	overflow: hidden;
 }
-section p { margin: 0 0 1em; }
-section p:last-child { margin-bottom: 0; }
+article p { margin: 0 0 1em; }
+article p:last-child { margin-bottom: 0; }
 
 nav { margin-top: 20px; }
 nav a {
@@ -77,6 +88,7 @@ nav a {
 	border: 5px solid #fff;
 	padding: 5px 15px;
 	font-weight: bold;
+	font-family: helvetica;
 	white-space: nowrap;
 }
 nav a:hover {
@@ -91,35 +103,31 @@ nav a:active {
 ::selection { background: #3c9; }
 ::-moz-selection { background: #3c9; }
 
-h1 {
-	margin: 0;
-	font-weight: normal;
-	font-size: 2em;
+h1, h2 {
+	font-size: 40px;
+	font-family: helvetica;
+	letter-spacing: 0em;
+	line-height: 1em;
+	margin: 0 auto;
+	text-align: center;
 }
+
+h1 { font-weight: normal; }
 h1>div { display: inline-block; }
 
 h2 {
 	position: relative;
 	display: inline-block;
-	min-width: 300px;
-	max-width: 80%;
-	margin: 0 auto;
-	border: 8px solid #111;
+	width: 400px;
 	padding: 15px;
-	text-align: center;
+	border: 8px solid #111;
 	font-weight: bold;
-	font-size: 2em;
-	line-height: 1em;
 }
+h2>* { position: relative; }
 h2 u {
-	position: relative;
 	top: -0.05em;
 	font-size: 0.9em;
 	vertical-align: top;
-}
-h2 b {
-	position: relative;
-	letter-spacing: 0;
 }
 h2 b:after {
 	position: absolute;
@@ -203,23 +211,21 @@ h2 b:after {
 .icons a:hover img { background: #3c9; }
 
 @media (max-width: 767px) {
-	body { font-size: 30px; }
-	h1>div {
-		display: block;
-		margin-bottom: 0.3em;
-	}
+	h1, h2 { font-size: 60px; }
+	h1>div { display: block; }
 	nav a {
 		display: block;
 		width: 50%;
 		min-width: 300px;
 		margin: 1em auto;
 		border-width: 8px;
+		font-size: 30px;
+		line-height: 1.5em;
 	}
 	header { background: #111; }
-	section article {
-		font-size: 0.8em;
-		width: 400px;
-		max-width: 80%;
+	h2, article {
+		width: auto;
+		max-width: 400px;
 	}
 	#canvas { display: none; }
 	.social.icons {
