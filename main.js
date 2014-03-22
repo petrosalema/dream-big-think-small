@@ -284,10 +284,10 @@
 	};
 
 	if (window.console && 'function' === typeof window.console.log) {
-		var colophon = 'COLOPHON\n'
-		             + '▬▬▬▬▬▬▬▬\n'
+		var colophon = '@petrosalema • colophon\n'
+		             + '▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n'
 		             + '\n'
-		             + ' ● Fluid Dynamics\n'
+		             + 'Fluid Dynamics\n'
 		             + ' • www.nerget.com/fluidSim/\n'
 		             + ' • code.google.com/p/javascript-fluid/\n'
 		             + ' • www.cs.ubc.ca/~rbridson/docs/brentw_msc.pdf\n'
@@ -296,7 +296,7 @@
 		             + ' • www.dgp.toronto.edu/people/stam/reality/Research/pdf/GDC03.pdf\n'
 		             + ' • www.stackoverflow.com/questions/4893992/fluid-dynamic-simulation-with-obstacles\n'
 		             + '\n'
-		             + ' ● Type Faces\n'
+		             + 'Type Faces\n'
 					 + ' • Title/Headings: Helvetica\n'
 					 + ' • Content: FastCompany\'s Zizou Slab\n';
 		console.log(colophon);

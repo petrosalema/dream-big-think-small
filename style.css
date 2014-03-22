@@ -211,7 +211,7 @@ h2 b:after {
 .icons a:hover img { background: #3c9; }
 
 @media (max-width: 767px) {
-	h1, h2 { font-size: 60px; }
+	h1, h2 { font-size: 50px; }
 	h1>div { display: block; }
 	nav a {
 		display: block;
