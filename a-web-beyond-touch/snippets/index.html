@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Speech Control</title>
+	</head>
+	<body>
+		<div class="aloha-editable">
+			Hello, world!
+		</div>
+		<script src="require.js"></script>
+		<script src="bootstrap.js"></script> <!-- Initializes LLVM's JavaScript code -->
+		<script src="parse.js"></script>     <!-- JavaScript of converted C program  -->
+		<script>
+			require(['aloha', 'dictate'], function (aloha) {
+				[].forEach.call(document.querySelectorAll('.aloha-editable'), aloha);
+			});
+		</script>
+	</body>
+</html>

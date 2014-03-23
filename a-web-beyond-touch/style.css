@@ -1,0 +1,290 @@
+@charset 'UTF-8';
+
+/** -- `inspiration --
+ * http://design-seeds.com/
+ * http://designmodo.com/flat/
+ * http://www.intothearctic.gp/
+ * http://www.triplagent.com
+ * http://designmodo.com/square/
+ * http://designmodo.com/flat-design-principles/
+ * http://dribbble.com/shots/963964-Online-Radio/attachments/110350
+ * http://cdns.designmodo.com/wp-content/themes/designmodov2/flat-ui/images/2.Icons-Pack@2x.png
+ * http://dribbble.s3.amazonaws.com/users/104062/screenshots/1053618/attachments/128824/hq.png
+ */
+
+/** -- `fonts -- */
+
+@font-face {
+	font-family: 'futura';
+	font-style: normal;
+	font-weight: 300;
+	src: url(fonts/futura-light.woff) format('woff'), local('Futura Light'), local('Futura-Light');
+}
+@font-face {
+	font-family: 'futura';
+	font-style: normal;
+	font-weight: 700;
+	src: url(fonts/futura-heavy.woff) format('woff'), local('Futura Heavy'), local('Futura-Heavy');
+}
+
+@font-face {
+	font-family: 'spinka';
+	font-weight: 300;
+	font-style: normal;
+	src: url('fonts/Signika-Light-webfont.woff') format('woff');
+}
+@font-face {
+	font-family: 'spinka';
+	font-weight: 700;
+	font-style: normal;
+	src: url('fonts/Signika-Bold-webfont.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'avenir';
+	font-weight: 300;
+	font-style: normal;
+	src: url('fonts/avenir_light.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'avenir';
+	font-weight: 700;
+	font-style: normal;
+	src: url('fonts/avenir_bold.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'century-gothic';
+	font-weight: 400;
+	font-style: normal;
+	src: url('fonts/century-gothic.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'century-gothic';
+	font-weight: 700;
+	font-style: normal;
+	src: url('fonts/century-gothic-bold.ttf') format('truetype');
+}
+
+.spinka {
+	font-family: 'spinka';
+}
+
+/** -- `base -- */
+body {
+	background: #111;
+	padding: 0;
+	margin: 0;
+	font-family: 'futura', helvetica, sans-serif;
+	overflow: hidden;
+	background: #fff;
+}
+
+/** -- slides -- */
+.slides {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+.slides>li {
+	list-style: none;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+.slides>li>img {
+	position: relative;
+	margin: 0 auto;
+}
+
+/** -- `colors -- */
+.halo {
+	background: #fff;
+	box-shadow: 0 0 100px rgba(0,0,0,0.2) inset;
+}
+.peach {
+	background: #ef5050;
+	color: whiteSmoke;
+}
+.peach-text { color: #ef5050; }
+.cream {
+	background: #ede0cf;
+}
+.asphalt {
+	background: #4c4c4c;
+}
+.slime {
+	background: #92b357;
+	color: #6c8432;
+}
+.ocean {
+	background: #69a8c2;
+	color: #3e6478; /* #fff | #373637 */
+}
+.gum {
+	background: #e86187;
+	color: #943d5a;
+}
+.custered {
+	background: #fb9236;
+	color: #976325;
+}
+.daylight {
+	background: #8ac9d0;
+	color: #f6f3e8;
+}
+.dirt {
+	background: #f6f3e8;
+	color: #54514a;
+}
+.pink-cake {
+	background: #e2404d; /* shadow: #c13642 */
+	color: #f6efae; /* shadow: #d4b388 */
+}
+.tomato {
+	background: tomato;
+	color: #fff;
+}
+.white {
+	background: #fff;
+	color: #333;
+}
+.blaze {
+	background-color: #4cd2da;
+	color: #fff;
+	font-family: 'spinka';
+}
+.royal {
+	background-color: #0467e6;
+	color: #fff;
+}
+
+.zoomable {
+	position: absolute;
+	height: 1px;
+	width: 1px;
+}
+.blue-dot {
+	color: #0467e6;
+}
+
+.centered {
+	display: table;
+}
+.centered>:first-child {
+	padding: 0;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+
+b, .bold {
+	font-weight: bold;
+}
+
+.small  {font-size: 1em;}
+.medium {font-size: 4em;}
+.big    {font-size: 8em;}
+.huge   {font-size: 16em;}
+
+h1 {
+	margin: 0;
+	padding: 0;
+	font-size: 4em;
+	font-weight: normal;
+}
+h2 {
+	margin: 0;
+	padding: 0;
+	font-size: 3em;
+	font-weight: normal;
+}
+.mono {
+	font-family: monospace;
+	font-size: 3em;
+}
+
+.mono b {
+	opacity: 0.5;
+}
+
+.growl {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	min-height: 30px;
+	padding: 10px;
+	box-shadow: inset 0 0 40px rgba(0,0,0,0.4);
+	background-color: #0467e6;
+	color: #fff;
+	font-family: monospace;
+	font-size: 2em;
+	font-weight: bold;
+}
+
+.aloha-editable {
+	width: 500px;
+	width: 40%;
+	margin: 110px auto;
+	font-size: 1.5em
+}
+
+.aloha-caret {
+	position: absolute;
+	z-index: 1;
+	margin: 0;
+	padding: 0;
+	background: #333;
+	background-color: #0467e6;
+	z-index: 99999;
+}
+
+.aloha-caret-blink {
+	-webkit-animation: blink .5s ease-out infinite alternate;
+	   -moz-animation: blink .5s ease-out infinite alternate;
+	    -ms-animation: blink .5s ease-out infinite alternate;
+	     -o-animation: blink .5s ease-out infinite alternate;
+	        animation: blink .5s ease-out infinite alternate;
+}
+
+@-moz-keyframes blink {
+	  0% {opacity: 1}
+	100% {opacity: 0}
+}
+@-webkit-keyframes blink {
+	  0% {opacity: 1}
+	100% {opacity: 0}
+}
+
+::selection {
+	background: #4285f4;
+	background: #0467e6;
+	color: #fff;
+}
+::-moz-selection {
+	background: #4285f4;
+	background: #0467e6;
+	color: #fff;
+}
+
+.caret {
+	display: inline-block;
+	width: 13px;
+	background: #fff;
+	line-height: 1em;
+	-webkit-animation: blink .5s ease-out infinite alternate;
+	   -moz-animation: blink .5s ease-out infinite alternate;
+	    -ms-animation: blink .5s ease-out infinite alternate;
+	     -o-animation: blink .5s ease-out infinite alternate;
+	        animation: blink .5s ease-out infinite alternate;
+}
+@-moz-keyframes blink {
+	  0% {opacity: 1}
+	100% {opacity: 0}
+}
+@-webkit-keyframes blink {
+	  0% {opacity: 1}
+	100% {opacity: 0}
+}
