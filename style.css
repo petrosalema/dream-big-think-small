@@ -85,6 +85,13 @@ article p:last-child { margin-bottom: 0; }
 article img { width: 100%; }
 article a { color: #3c9; }
 article a:hover { text-decoration: underline; }
+article p.first:first-letter {
+	float: left;
+	padding-right: 0.2em;
+	line-height: 1em;
+	font-size: 3em;
+	font-weight: bold;
+}
 
 nav { margin-top: 20px; }
 nav a {
@@ -247,8 +254,8 @@ article a:hover .circle {
 .flipcard {
 	float: left;
 	position: relative;
-	width: 400px;
-	height: 246px;
+	width: 200px;
+	height: 123px;
 	cursor: pointer;
 	overflow: hidden;
 }
@@ -262,7 +269,6 @@ article a:hover .circle {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: pink;
 	opacity: 0;
 }
 .flipcard>div {
@@ -280,22 +286,21 @@ article a:hover .circle {
 	   -moz-transition: left 0.2s ease-out;
 	    -ms-transition: left 0.2s ease-out;
 	     -o-transition: left 0.2s ease-out;
+	color: #fff;
 }
 .flipcard .front>div>div {
 	position: relative;
-	width: 120px;
-	height: 120px;
-	padding: 10px;
+	width: 110px;
+	height: 110px;
+	left: 50px;
 	border-radius: 60px;
 	background: #111;
-	color: #fff;
 	font-size: 0.9em;
-	left: 140px;
 }
 .flipcard .back {
-	color: #fff;
 	opacity: 0;
-	padding: 2em;
+	line-height: 1.2em;
+	padding: 0 2em;
 }
 
 .clear {
@@ -320,6 +325,8 @@ article a:hover .circle {
 		width: 100%;
 		max-width: 400px;
 	}
+	.flipcard { height: 247px; }
+	.flipcard .front>div>div { left: 140px; }
 	#canvas { display: none; }
 	.social.icons {
 		position: relative;

@@ -39,7 +39,7 @@
 	function flip(card, callback, complete) {
 		var end = card.forwards ? 0 : 180;
 		var start = card.front.rotation.y;
-		var trigger = card.forwards ? 0.6: 0.3;
+		var trigger = card.forwards ? 0.6: 0.4;
 		var finished = false;
 		return animate(
 			start,
