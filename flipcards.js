@@ -49,11 +49,34 @@
 			function (value, percent) {
 				card.front.rotation.y = value;
 				card.engine.onInterval();
-				if (!finished && percent > trigger && 'function' === typeof callback) {
+				if (!finished && percent > trigger && callback) {
 					finished = true;
 					callback();
 				}
-				if (1 === percent) {
+				if (1 === percent && complete) {
+					complete();
+				}
+			}
+		);
+	}
+
+	function tilt(card, complete) {
+		var start = card.front.rotation.y;
+		var end;
+		if (card.forwards) {
+			end = card.tilting ? 4 : 0;
+		} else {
+			end = card.tilting ? 180 - 4 : 180;
+		}
+		return animate(
+			start,
+			end,
+			easeOutQuint,
+			400,
+			function (value, percent) {
+				card.front.rotation.y = value;
+				card.engine.onInterval();
+				if (1 === percent && complete) {
 					complete();
 				}
 			}
@@ -117,20 +140,21 @@
 		var card = {
 			front    : front,
 			engine   : engine,
-			forwards : true
+			forwards : true,
+			tilting  : false
 		};
 
 		var frontside = flipcard.querySelector('.front');
 		var backside = flipcard.querySelector('.back');
 		var state;
-
+		var flipping = false;
 		flipcard.addEventListener('click', function () {
 			if (state && state.timer) {
 				clearTimeout(state.timer);
 			}
 
+			flipping = true;
 			card.forwards = !card.forwards;
-
 			frontside.style.left = -w + 'px';
 			backside.style.left = w + 'px';
 			img.style.opacity = 0;
@@ -145,12 +169,34 @@
 					backside.style.left = 0;
 				}
 			}, function () {
+				flipping = false;
 				if (card.forwards) {
 					img.style.opacity = 1;
 					canvas.style.opacity = 0;
 				}
 			});
 		}, false);
+
+		var t = function () {
+			if (flipping) {
+				return;
+			}
+			if (state && state.timer) {
+				clearTimeout(state.timer);
+			}
+			img.style.opacity = 0;
+			canvas.style.opacity = 1;
+			state = tilt(card);
+		};
+
+		flipcard.addEventListener('mouseover', function () {
+			card.tilting = true;
+			t();
+		});
+		flipcard.addEventListener('mouseout', function () {
+			card.tilting = false;
+			t();
+		});
 	}
 
 	window.Flipcards = {

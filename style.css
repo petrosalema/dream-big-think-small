@@ -241,9 +241,18 @@ h2 b:after {
 	width: 120px;
 	height: 120px;
 	padding: 1em;
+	border: 0px solid #3c9;
 	border-radius: 120px;
 	background: #111;
 	left: 140px;
+	font-size: 0.9em;
+	-webkit-transition: border-width 0.2s ease-out;
+	   -moz-transition: border-width 0.2s ease-out;
+	    -ms-transition: border-width 0.2s ease-out;
+	     -o-transition: border-width 0.2s ease-out;
+}
+.card:hover .circle {
+	border-width: 5px;
 }
 article a .circle,
 article a:hover .circle {
@@ -282,20 +291,28 @@ article a:hover .circle {
 	left: 0;
 	width: 100%;
 	height: 100%;
+	color: #fff;
 	-webkit-transition: left 0.2s ease-out;
 	   -moz-transition: left 0.2s ease-out;
 	    -ms-transition: left 0.2s ease-out;
 	     -o-transition: left 0.2s ease-out;
-	color: #fff;
 }
 .flipcard .front>div>div {
 	position: relative;
 	width: 110px;
 	height: 110px;
 	left: 50px;
+	border: 0px solid #3c9;
 	border-radius: 60px;
 	background: #111;
 	font-size: 0.9em;
+	-webkit-transition: border-width 0.2s ease-out;
+	   -moz-transition: border-width 0.2s ease-out;
+	    -ms-transition: border-width 0.2s ease-out;
+	     -o-transition: border-width 0.2s ease-out;
+}
+.flipcard:hover .front>div>div {
+	border-width: 5px;
 }
 .flipcard .back {
 	opacity: 0;
@@ -325,7 +342,10 @@ article a:hover .circle {
 		width: 100%;
 		max-width: 400px;
 	}
-	.flipcard { height: 247px; }
+	.flipcard {
+		height: 247px;
+		margin-bottom: 1em;
+	}
 	.flipcard .front>div>div { left: 140px; }
 	#canvas { display: none; }
 	.social.icons {
