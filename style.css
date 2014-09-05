@@ -16,16 +16,6 @@
  */
 
 @font-face {
-	font-family: 'helvetica';
-	font-weight: 400;
-	src: url('fonts/helvetica-light.woff') format('woff');
-}
-@font-face {
-	font-family: 'helvetica';
-	font-weight: 700;
-	src: url('fonts/helvetica-bold.woff') format('woff');
-}
-@font-face {
 	font-family: 'FCZizouSlab';
 	font-weight: 400;
 	src: url('fonts/fczizou-slab-light.woff') format('woff');
@@ -48,7 +38,7 @@ html, body {
 	margin: 0;
 	padding: 0;
 	cursor: default;
-	font: 18px/1.5em helvetica, sans-serif;
+	font: 18px/1.5em 'Open Sans', sans-serif;
 	letter-spacing: 0.05em;
 	color: #111;
 	background: #fff;
