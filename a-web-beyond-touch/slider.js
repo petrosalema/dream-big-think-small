@@ -73,7 +73,7 @@
 		$slides.css('z-index', min_index).hide();
 		$prev.stop().show().addClass('transition').css('z-index', max_index - 1);
 		$next.stop().show().removeClass('transition').css('z-index', max_index);
-		location.href = '#' + $next.data('slide-index');
+		//location.href = '#' + $next.data('slide-index');
 		$prev.hide();
 		$next.show();
 	}

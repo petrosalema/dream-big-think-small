@@ -14,7 +14,6 @@
 	};
 
 	slides_actions['delay'] = function ($prev, $next, callback) {
-		console.log(1);
 		setTimeout(callback, 1000);
 	};
 
@@ -26,8 +25,8 @@
 		var y = off.top + $dot.height() - 20;
 		$target.offset({left: x, top: y});
 		$target.zoomTo({
-			debug                : false,
-			easing               : 'ease-in-expo',
+			debug                : true,
+			easing               : 'ease-in', //'ease-in-expo',
 			duration             : 900,
 			targetsize           : 0.3,
 			nativeanimation      : true,

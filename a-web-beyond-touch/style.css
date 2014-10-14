@@ -1,81 +1,12 @@
 @charset 'UTF-8';
 
-/** -- `inspiration --
- * http://design-seeds.com/
- * http://designmodo.com/flat/
- * http://www.intothearctic.gp/
- * http://www.triplagent.com
- * http://designmodo.com/square/
- * http://designmodo.com/flat-design-principles/
- * http://dribbble.com/shots/963964-Online-Radio/attachments/110350
- * http://cdns.designmodo.com/wp-content/themes/designmodov2/flat-ui/images/2.Icons-Pack@2x.png
- * http://dribbble.s3.amazonaws.com/users/104062/screenshots/1053618/attachments/128824/hq.png
- */
-
-/** -- `fonts -- */
-
-@font-face {
-	font-family: 'futura';
-	font-style: normal;
-	font-weight: 300;
-	src: url(fonts/futura-light.woff) format('woff'), local('Futura Light'), local('Futura-Light');
-}
-@font-face {
-	font-family: 'futura';
-	font-style: normal;
-	font-weight: 700;
-	src: url(fonts/futura-heavy.woff) format('woff'), local('Futura Heavy'), local('Futura-Heavy');
-}
-
-@font-face {
-	font-family: 'spinka';
-	font-weight: 300;
-	font-style: normal;
-	src: url('fonts/Signika-Light-webfont.woff') format('woff');
-}
-@font-face {
-	font-family: 'spinka';
-	font-weight: 700;
-	font-style: normal;
-	src: url('fonts/Signika-Bold-webfont.woff') format('woff');
-}
-
-@font-face {
-	font-family: 'avenir';
-	font-weight: 300;
-	font-style: normal;
-	src: url('fonts/avenir_light.ttf') format('truetype');
-}
-@font-face {
-	font-family: 'avenir';
-	font-weight: 700;
-	font-style: normal;
-	src: url('fonts/avenir_bold.ttf') format('truetype');
-}
-
-@font-face {
-	font-family: 'century-gothic';
-	font-weight: 400;
-	font-style: normal;
-	src: url('fonts/century-gothic.ttf') format('truetype');
-}
-@font-face {
-	font-family: 'century-gothic';
-	font-weight: 700;
-	font-style: normal;
-	src: url('fonts/century-gothic-bold.ttf') format('truetype');
-}
-
-.spinka {
-	font-family: 'spinka';
-}
-
 /** -- `base -- */
 body {
 	background: #111;
 	padding: 0;
 	margin: 0;
-	font-family: 'futura', helvetica, sans-serif;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 12px;
 	overflow: hidden;
 	background: #fff;
 }
@@ -153,7 +84,6 @@ body {
 .blaze {
 	background-color: #4cd2da;
 	color: #fff;
-	font-family: 'spinka';
 }
 .royal {
 	background-color: #0467e6;
@@ -272,6 +202,7 @@ h2 {
 .caret {
 	display: inline-block;
 	width: 13px;
+	height: 1em;
 	background: #fff;
 	line-height: 1em;
 	-webkit-animation: blink .5s ease-out infinite alternate;
