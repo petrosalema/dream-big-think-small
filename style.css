@@ -15,17 +15,6 @@
  *         filter: blur(5px);
  */
 
-@font-face {
-	font-family: 'FCZizouSlab';
-	font-weight: 400;
-	src: url('fonts/fczizou-slab-light.woff') format('woff');
-}
-@font-face {
-	font-family: 'FCZizouSlab';
-	font-weight: 700;
-	src: url('fonts/fczizou-slab-bold.woff') format('woff');
-}
-
 * { 
 	-webkit-box-sizing: border-box;
 	   -moz-box-sizing: border-box;
@@ -38,313 +27,49 @@ html, body {
 	margin: 0;
 	padding: 0;
 	cursor: default;
-	font: 18px/1.5em 'Open Sans', sans-serif;
-	letter-spacing: 0.05em;
+	font: 18px/1.5em 'Source Sans Pro', sans-serif;
+	letter-spacing: 0.1em;
 	color: #111;
-	background: #fff;
+	background: #ffcc4d;
 	-webkit-transition: background 0.5s ease-out;
 	   -moz-transition: background 0.5s ease-out;
 	    -ms-transition: background 0.5s ease-out;
 	     -o-transition: background 0.5s ease-out;
 }
-
-a {
-	color: #fff;
-	text-decoration: none;
-	outline: none;
-}
-
-noscript { background: #111; }
-
-header, section {
-	width: 100%;
-	min-height: 100%;
-	text-align: center;
-	padding: 1em;
-}
-
-article {
-	margin: 1em auto 0;
-	width: 400px;
-	text-align: justify;
-	overflow: hidden;
-	font-family: FCZizouSlab;
-}
-article p { margin: 0 0 1em; }
-article p:last-child { margin-bottom: 0; }
-article img { width: 100%; }
-article a { color: #3c9; }
-article a:hover { text-decoration: underline; }
-article p.first:first-letter {
-	float: left;
-	padding-right: 0.2em;
-	line-height: 1em;
-	font-size: 3em;
-	font-weight: bold;
-}
-
-nav { margin-top: 20px; }
-nav a {
-	margin-left: 10px;
-	border: 5px solid #fff;
-	padding: 5px 15px;
-	font-weight: bold;
-	white-space: nowrap;
-}
-nav a:hover {
-	color: #3c9;
-	border-color: #3d9;
-}
-nav a:active {
-	color: #fff;
-	background: #3c9;
-}
-
-::selection { background: #3c9; }
-::-moz-selection { background: #3c9; }
-
-h1, h2 {
-	font-size: 40px;
-	letter-spacing: 0em;
-	line-height: 1em;
-	margin: 0 auto;
-	text-align: center;
-}
-
-h1 { font-weight: normal; }
-h1>div { display: inline-block; }
-
-h2 {
-	position: relative;
-	display: inline-block;
-	width: 400px;
-	padding: 15px 0;
-	border: 8px solid #111;
-	font-weight: bold;
-}
-h2>* { position: relative; }
-h2 u {
-	top: -0.05em;
-	font-size: 0.9em;
-	vertical-align: top;
-}
-h2 b:after {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	left: 0;
-	top: -0.1em;
-	content: ".";
-	text-align: center;
-}
-
-#canvas {
-	-webkit-transition: opacity 2s ease-out;
-	   -moz-transition: opacity 2s ease-out;
-	    -ms-transition: opacity 2s ease-out;
-	     -o-transition: opacity 2s ease-out;
-}
-
 .centered {
 	display: table;
+	position: absolute;
+	top: 0%;
+	left: 0%;
 	width: 100%;
+	height: 100%;
+	overflow: hidden;
 }
-.centered>:first-child {
+.centered>div {
+	position: relative;
 	display: table-cell;
 	vertical-align: middle;
 	text-align: center;
 }
-
-.bg {
-	display: block;
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: 1;
-	width: 100%;
-	height: 100%;
+video {
+	width: 596px;
+	height: 336px;
+	-webkit-filter: contrast(120%);
+	filter: sepia(120%);
 }
-
-.fg {
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: 2;
-	width: 100%;
-	height: 100%;
+h1 {
 	color: #fff;
+	font-weight: normal;
+	opacity: 0.9;
 }
-
-.translucent {
-	position: relative;
+.cover {
+	position: absolute;
 	top: 0;
 	left: 0;
-	opacity: 0.9;
-	filter: opacity(90);
 }
-
-.center { text-align: center; }
-
-.social {
+.cover>div {
 	position: absolute;
-	width: 100%;
-	bottom: 0;
-	margin: 1em 0;
-	text-align: center;
-	opacity: 0.8;
-	filter: opacity(80);
-}
-.icons { line-height: 0em; }
-.icons img {
 	width: 50px;
 	height: 50px;
-	border-radius: 100px;
-	padding: 5px;
-	background: #fff;
-}
-.icons a {
-	display: inline-block;
-	border-radius: 100px;
-}
-.icons a:hover img { background: #3c9; }
-
-
-.card {
-	position: relative;
-	width: 400px;
-	height: 246px;
-	cursor: pointer;
-	overflow: hidden;
-}
-.card img {
-	position: absolute;
-	left: 0;
-	top: 0;
-}
-.card div {
-	position: relative;
-	width: 100%;
-	height: 100%;
-}
-.card .circle {
-	position: relative;
-	width: 120px;
-	height: 120px;
-	padding: 1em;
-	border: 0px solid #3c9;
-	border-radius: 120px;
-	background: #111;
-	left: 140px;
-	font-size: 0.9em;
-	-webkit-transition: border-width 0.2s ease-out;
-	   -moz-transition: border-width 0.2s ease-out;
-	    -ms-transition: border-width 0.2s ease-out;
-	     -o-transition: border-width 0.2s ease-out;
-}
-.card:hover .circle {
-	border-width: 5px;
-}
-article a .circle,
-article a:hover .circle {
-	color: #fff;
-	text-decoration: none;
-}
-
-.flipcard {
-	float: left;
-	position: relative;
-	width: 200px;
-	height: 123px;
-	cursor: pointer;
-	overflow: hidden;
-}
-.flipcard img {
-	position: absolute;
-}
-.flipcard canvas {
-	display: block;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	opacity: 0;
-}
-.flipcard>div {
-	position: relative;
-	width: 100%;
-	height: 100%;
-}
-.flipcard .front,
-.flipcard .back {
-	position: absolute;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	color: #fff;
-	-webkit-transition: left 0.2s ease-out;
-	   -moz-transition: left 0.2s ease-out;
-	    -ms-transition: left 0.2s ease-out;
-	     -o-transition: left 0.2s ease-out;
-}
-.flipcard .front>div>div {
-	position: relative;
-	width: 110px;
-	height: 110px;
-	left: 50px;
-	border: 0px solid #3c9;
-	border-radius: 60px;
-	background: #111;
-	font-size: 0.9em;
-	-webkit-transition: border-width 0.2s ease-out;
-	   -moz-transition: border-width 0.2s ease-out;
-	    -ms-transition: border-width 0.2s ease-out;
-	     -o-transition: border-width 0.2s ease-out;
-}
-.flipcard:hover .front>div>div {
-	border-width: 5px;
-}
-.flipcard .back {
-	opacity: 0;
-	line-height: 1.2em;
-	padding: 0 2em;
-}
-
-.clear {
-	clear: both;
-	float: none;
-}
-
-@media (max-width: 767px) {
-	h1, h2 { font-size: 50px; }
-	h1>div { display: block; }
-	nav a {
-		display: block;
-		width: 50%;
-		min-width: 300px;
-		margin: 1em auto;
-		border-width: 8px;
-		font-size: 30px;
-		line-height: 1.5em;
-	}
-	header { background: #111; }
-	h2, article, .flipcard {
-		width: 100%;
-		max-width: 400px;
-	}
-	.flipcard {
-		height: 247px;
-		margin-bottom: 1em;
-	}
-	.flipcard .front>div>div { left: 140px; }
-	#canvas { display: none; }
-	.social.icons {
-		position: relative;
-		bottom: auto;
-	}
-	.icons img {
-		width: 60px;
-		height: 60px;
-	}
-	.centered, .centered>:first-child { position: relative; }
+	background: whitesmoke;
 }

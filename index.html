@@ -4,185 +4,21 @@
 	<title>@petrosalema</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,700' rel='stylesheet' type='text/css'>
+	<link
+	href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,900'
+	rel='stylesheet' type='text/css'>
 	<link href="style.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
-	<header>
-		<canvas id="canvas" class="bg"></canvas>
-		<noscript class="bg"></noscript>
-		<div class="fg centered">
-			<div class="translucent">
-				<h1>
-					<div><small>@</small>petro<wbr><strong>salema</strong></div>
-					builds things<strong>.</strong>
-				</h1>
-
-				<nav>
-					<a href="#things">THINGS</a>
-					<a href="#thoughts">THOUGHTS</a>
-					<a href="#alohaeditor">ALOHA&bull;EDITOR</a>
-				</nav>
-
-				<div class="social icons">
-					<a href="http://www.github.com/petrosalema">
-						<img src="imgs/github.svg" alt="Github" />
-					</a>
-					<a href="http://www.twitter.com/petrosalema">
-						<img src="imgs/twitter.png" alt="Twitter" />
-					</a>
-				</div>
-			</div>
-		</div>
-	</header>
-
-	<section id="things"><div class="centered"><div>
-		<h2>TH!<u>N</u>GS</h2>
-		<article>
-			<div class="flipcard">
-				<img src="imgs/barooha.png" />
-				<canvas></canvas>
-				<div>
-					<div class="front centered"><div>
-						<div class="centered"><div>Barooha</div></div>
-					</div></div>
-					<div class="back centered"><div>
-						Unified messaging (mobile app coming soon)
-					</div></div>
-				</div>
-			</div>
-
-			<div class="flipcard">
-				<img src="imgs/uhuru.png" />
-				<canvas></canvas>
-				<div>
-					<div class="front centered"><div>
-						<div class="centered"><div>Uhuru3D.js</div></div>
-					</div></div>
-					<div class="back centered"><div>
-						JavaScript 3D engine
-					</div></div>
-				</div>
-			</div>
-
-			<div class="clear"></div>
-
-			<div class="flipcard">
-				<img src="imgs/wimbomedia.png" />
-				<canvas></canvas>
-				<div>
-					<div class="front centered"><div>
-						<div class="centered"><div>Wimbomedia</div></div>
-					</div></div>
-					<div class="back centered"><div>
-						Audio search engine †
-					</div></div>
-				</div>
-			</div>
-
-			<div class="flipcard">
-				<img src="imgs/dark-gloriole.png" />
-				<canvas></canvas>
-				<div>
-					<div class="front centered"><div>
-						<div class="centered"><div>Dark&nbsp;Gloriole</div></div>
-					</div></div>
-					<div class="back centered"><div>
-						Video game for mac and pc
-					</div></div>
-				</div>
-			</div>
-
-			<div class="clear"></div>
-		</article>
-	</div></div></section>
-
-	<section id="thoughts"><div class="centered"><div>
-		<h2>TH<u>O</u>U<wbr/>GHTS</h2>
-		<article id="a-web-beyond-touch">
-			<a href="https://www.youtube.com/watch?v=eYPwE5ZDVc0">
-				<div class="card centered">
-					<div>
-						<img src="imgs/petro-speaking.jpg" />
-						<div class="circle centered">
-							<div>A Web Beyond Touch</div>
-						</div>
-					</div>
-				</div>
-			</a>
-
-			<div class="clear"></div>
-
-			<br/>
-
-			<!-- p class="centered">
-				<b>
-					<a href="https://www.youtube.com/watch?v=eYPwE5ZDVc0">Video</a>
-					&nbsp; &bull; &nbsp;
-					<a href="a-web-beyond-touch/index.html">Slides</a>
-				</b>
-			</p -->
-
-			<p class="first">
-				The advent of the World Wide Web brought far reaching changes
-				in human computer interaction, and mobility is doing the same.
-				Turning knobs and flicking switches became pressing keys and
-				moving a mouse. This in turn has become touching screens and
-				swiping. And this is only the beginning.
-			</p>
-
-			<p>
-				JavaScript development is acclimatizing itself to a new
-				keyboard- and mouse-free, screen-orientated mainstream. But
-				what happens to web development when new categories of devices
-				mean that even the touch-screen cannot be assumed?
-			</p>
-
-			<p>
-				Computer user interfaces change. What remains the same,
-				however, is the human body that drives interaction. So this
-				talk will discuss an experiment that explores developing
-				touch-less human computer interaction with JavaScript for
-				content creation on a mobile World Wide Web.
-			</p>
-
-			<iframe width="400" height="300" frameborder="0"
-					src="http://www.youtube.com/embed/eYPwE5ZDVc0?controls=1&autohide=1&showinfo=0&rel=0"
-					allowfullscreen></iframe>
-		</article>
-	</div></div></section>
-
-	<section id="alohaeditor"><div class="centered"><div>
-		<h2>AL<b>O</b>HA EDIT<u>O</u>R</h2>
-		<article>
-			<p class="first">
-				Where would Michelangelo be without his brush, Hemingway
-				without his typewriter, or Beethoven without his piano?
-			</p>
-			<p>
-				Our mission is to equip digital-native content creators with
-				the most revolutionary tools for rich text editing, and to
-				provide developers with advanced capabilities to build
-				powerfully tailored editing experiences for their users.
-			</p>
-			<p>
-				Aloha Editor is an open source library to make this mission
-				real on the open web.
-			</p>
-			<div class="center icons">
-				<a href="http://www.github.com/alohaeditor/Aloha-Editor/tree/howling-mad">
-					<img src="imgs/github.svg" alt="Aloha Editor" title="Fork it on Github!"/>
-				</a>
-			</div>
-		</article>
-	</div></div></section>
-
-	<canvas id="utilCanvas" style="display:none"></canvas>
-
-	<script src="pressure.js"></script>
-	<script src="colors.js"></script>
-	<script src="uhuru.js"></script>
-	<script src="flipcards.js"></script>
+	<div class="centered"><div>
+		<video type="video/webm" autoplay="true" loop="true" class="cover"
+			src="http://ak9.picdn.net/shutterstock/videos/5840540/preview/stock-footage-rough-sea-seamless-loop-big-waves-in-a-stormy-ocean-camera-goes-underwater-hd-x-p.webm">
+			<source type="video/webm"
+				src="http://ak9.picdn.net/shutterstock/videos/5840540/preview/stock-footage-rough-sea-seamless-loop-big-waves-in-a-stormy-ocean-camera-goes-underwater-hd-x-p.webm">
+		</video>
+		<h1>@petrosalema</h1>
+	</div>
+	<script src="jquery.js"></script>
 	<script src="main.js"></script>
 </body>
 </html>
