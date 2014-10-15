@@ -9,6 +9,11 @@ body {
 	font-size: 12px;
 	overflow: hidden;
 	background: #fff;
+	cursor: none;
+	-moz-osx-font-smoothing: grayscale;
+	 -webkit-font-smoothing: antialiased;
+	    -moz-font-smoothing: antialiased;
+	         font-smoothing: antialiased;
 }
 
 /** -- slides -- */
