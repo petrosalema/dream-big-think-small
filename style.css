@@ -28,13 +28,13 @@ html, body {
 	padding: 0;
 	cursor: default;
 	font: 18px/1.5em 'Source Sans Pro', sans-serif;
-	letter-spacing: 0.1em;
+	letter-spacing: 0.05em;
 	color: #111;
-	background: #ffcc4d;
-	-webkit-transition: background 0.5s ease-out;
-	   -moz-transition: background 0.5s ease-out;
-	    -ms-transition: background 0.5s ease-out;
-	     -o-transition: background 0.5s ease-out;
+	background: #39383a;
+	-moz-osx-font-smoothing: grayscale;
+	 -webkit-font-smoothing: antialiased;
+	    -moz-font-smoothing: antialiased;
+	         font-smoothing: antialiased;
 }
 .centered {
 	display: table;
@@ -60,8 +60,27 @@ video {
 h1 {
 	color: #fff;
 	font-weight: normal;
-	opacity: 0.9;
+	opacity: 0.8;
 }
+.fg { position: relative; }
+.links a {
+	display: inline-block;
+	opacity: 0.9;
+	border: 3px solid rgba(255,255,255,0.3);
+	border-radius: 30px;
+	padding: 7px;
+	width: 55px;
+	height: 55px;
+	text-align: center;
+	margin: 0 5px;
+	-webkit-transition: border .2s ease-out;
+	   -moz-transition: border .2s ease-out;
+	    -ms-transition: border .2s ease-out;
+		 -o-transition: border .2s ease-out;
+			transition: border .2s ease-out;
+}
+.links a svg { display: inline-block; }
+.links a:hover { border: 3px solid rgba(255,255,255,0.8); }
 .cover {
 	position: absolute;
 	top: 0;
