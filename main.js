@@ -44,9 +44,12 @@
 			if (timer) {
 				clearTimeout(timer);
 			}
-			timer = setTimeout(cover, 100);
+			timer = setTimeout(cover, 10);
 		});
 		cover();
+		$('#talk-toggle').on('click', function () {
+			$('#talks').show();
+		});
 	});
 
 }());

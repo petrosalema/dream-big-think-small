@@ -29,12 +29,25 @@ html, body {
 	cursor: default;
 	font: 18px/1.5em 'Source Sans Pro', sans-serif;
 	letter-spacing: 0.05em;
-	color: #111;
 	background: #39383a;
+	color: #fff;
 	-moz-osx-font-smoothing: grayscale;
 	 -webkit-font-smoothing: antialiased;
 	    -moz-font-smoothing: antialiased;
 	         font-smoothing: antialiased;
+}
+a {
+	color: #fff;
+	text-decoration: none;
+	border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+	-webkit-transition: border .2s ease-out;
+	   -moz-transition: border .2s ease-out;
+	    -ms-transition: border .2s ease-out;
+		 -o-transition: border .2s ease-out;
+			transition: border .2s ease-out;
+}
+a:hover {
+	border-bottom: 2px solid rgba(255, 255, 255, 0.8);
 }
 .centered {
 	display: table;
@@ -61,8 +74,10 @@ h1 {
 	color: #fff;
 	font-weight: normal;
 	opacity: 0.8;
+	margin: 0;
 }
 .fg { position: relative; }
+.links { margin: 30px 0; }
 .links a {
 	display: inline-block;
 	opacity: 0.9;
@@ -73,11 +88,6 @@ h1 {
 	height: 55px;
 	text-align: center;
 	margin: 0 5px;
-	-webkit-transition: border .2s ease-out;
-	   -moz-transition: border .2s ease-out;
-	    -ms-transition: border .2s ease-out;
-		 -o-transition: border .2s ease-out;
-			transition: border .2s ease-out;
 }
 .links a svg { display: inline-block; }
 .links a:hover { border: 3px solid rgba(255,255,255,0.8); }
@@ -92,3 +102,4 @@ h1 {
 	height: 50px;
 	background: whitesmoke;
 }
+#talks { display: none; }
