@@ -1,10 +1,8 @@
-# Dream Big. Think Small.
+# [Dream Big. Think Small.](http://www.petrosalema.com/dream-big-think-small/slides)
 
-[![View slides](https://pbs.twimg.com/media/BzmBf-FIEAAZ7a9.jpg:large)](http://petrosalema.github.io/dream-big-think-small-slides)
+[![View slides](https://pbs.twimg.com/media/BzmBf-FIEAAZ7a9.jpg:large)](http://www.petrosalema.com/dream-big-think-small/slides)
 
 (Photo: [@mista_k](https://twitter.com/mista_k))
-
-## Abstract
 
 Hoverboards, jetpacks, holograms, and "the next big thing:" none are everyday
 technologies—not because we can't envision them—but because we haven't yet put
@@ -26,4 +24,4 @@ between our imagination and reality.
 
 ---
 
-**View slides:** http://petrosalema.github.io/dream-big-think-small-slides
+[Slides](http://www.petrosalema.com/dream-big-think-small/slides)
