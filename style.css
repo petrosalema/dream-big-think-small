@@ -114,8 +114,14 @@ body {
 	background-position: center center;
 }
 
-#future-slide.fx     { -webkit-animation: zoomout-text    2s ease-out 1s forwards; }
-#bomber-slide.active { -webkit-animation: zoomout-bomber 60s ease-out 0s forwards; }
+#future-slide.fx     {
+	-webkit-animation: zoomout-text 2s ease-out 1s forwards;
+	   -moz-animation: zoomout-text 2s ease-out 1s forwards;
+}
+#bomber-slide.active {
+	-webkit-animation: zoomout-bomber 60s ease-out 0s forwards;
+	   -moz-animation: zoomout-bomber 60s ease-out 0s forwards;
+}
 
 #bomber-side,
 #bomber-side-animation {
@@ -123,8 +129,14 @@ body {
 	height: 1000px;
 	zoom: 0.6;
 }
-#bomber-side           { -webkit-animation: fadein  8s ease-in forwards; }
-#bomber-side-animation { -webkit-animation: fadeout 8s ease-in forwards; }
+#bomber-side           {
+	-webkit-animation: fadein 8s ease-in forwards;
+	   -moz-animation: fadein 8s ease-in forwards;
+}
+#bomber-side-animation {
+	-webkit-animation: fadeout 8s ease-in forwards;
+	   -moz-animation: fadeout 8s ease-in forwards;
+}
 #bomber-top {
 	position: absolute;
 	left: 30px;
@@ -134,6 +146,7 @@ body {
 	zoom: 0.73;
 	opacity: 0;
 	-webkit-animation: fadein 4s ease-in 3s forwards;
+	   -moz-animation: fadein 4s ease-in 3s forwards;
 }
 #dots {
 	position: absolute;
@@ -159,36 +172,58 @@ body {
 
 /* `effects */
 .fadein         .x { opacity: 0; }
-.fadein.active  .x { -webkit-animation: fadein 0.5s ease-in forwards; }
+.fadein.active  .x {
+	-webkit-animation: fadein 0.5s ease-in forwards;
+	   -moz-animation: fadein 0.5s ease-in forwards;
+}
 .fadeout        .y { opacity: 1; }
-.fadeout.active .y { -webkit-animation: fadeout 0.5s ease-in forwards; }
+.fadeout.active .y {
+	-webkit-animation: fadeout 0.5s ease-in forwards;
+	   -moz-animation: fadeout 0.5s ease-in forwards;
+}
 .slidein .z1, .slidein .z2 { opacity: 0; }
 .slidein.active .z1 {
 	-webkit-animation-name: fadein, shift-left;
+	   -moz-animation-name: fadein, shift-left;
 	-webkit-animation-duration: 1s, 1s;
+	   -moz-animation-duration: 1s, 1s;
 	-webkit-animation-delay: 0s, 1s;
+	   -moz-animation-delay: 0s, 1s;
 	-webkit-animation-fill-mode: forwards, forwards;
+	   -moz-animation-fill-mode: forwards, forwards;
 }
 .slidein.active .z2 {
-	-webkit-animation-name:fadein, shift-left, shift-left-2;
+	-webkit-animation-name: fadein, shift-left;
+	   -moz-animation-name: fadein, shift-left;
 	-webkit-animation-duration: 1s, 1s;
+	   -moz-animation-duration: 1s, 1s;
 	-webkit-animation-delay: 1s, 1s;
+	   -moz-animation-delay: 1s, 1s;
 	-webkit-animation-fill-mode: forwards, forwards;
+	   -moz-animation-fill-mode: forwards, forwards;
 }
 
 video {
 	width: 100%;
 	opacity: 0.2;
 	-webkit-filter: contrast(150%) grayscale(100%);
+	        filter: url('filters.svg#grayscale');
 }
-.blurry-gray { -webkit-filter: grayscale(100%) blur(10px); }
-.black-n-white { -webkit-filter: grayscale(100%); }
+.blurry-gray {
+	-webkit-filter: grayscale(100%) blur(10px);
+	        filter: url('filters.svg#grayscale');
+}
+.black-n-white {
+	-webkit-filter: grayscale(100%);
+	        filter: url('filters.svg#grayscale');
+}
 
 #video_slide img { width: 80px; }
 
 #flying-bombers {
 	opacity: 0.4;
 	-webkit-animation: zoomin 20s ease-out forwards;
+	   -moz-animation: zoomin 20s ease-out forwards;
 	background-image: url(flying-bombers.jpg);
 }
 #jobs-home {
@@ -199,6 +234,7 @@ video {
 #alan-kay {
 	opacity: 0.4;
 	-webkit-animation: zoomout 20s ease-out forwards;
+	   -moz-animation: zoomout 20s ease-out forwards;
 }
 
 #death-text {
@@ -215,6 +251,7 @@ video {
 	top: 150px;
 	box-shadow: 0 0 100px rgba(0,0,0,0.5);
 	-webkit-filter: grayscale(100%);
+	        filter: url('filters.svg#grayscale');
 }
 
 
@@ -230,14 +267,19 @@ video {
 	left: 0;
 	width: 100%;
 	opacity: 0.4;
+	-webkit-filter: blur(10px) brightness(0%);
+	        filter: url('filters.svg#brightness');
 }
 .active .hoverboard-shadow {
 	display: block;
 	-webkit-animation: grow-n-shrink 1s ease-in-out;
-	-webkit-filter: contrast(0%) grayscale(100%) blur(30px) brightness(0%);
+	   -moz-animation: grow-n-shrink 1s ease-in-out;
 	-webkit-animation-play-state: running;
+	   -moz-animation-play-state: running;
 	-webkit-animation-direction: alternate;
+	   -moz-animation-direction: alternate;
 	-webkit-animation-iteration-count: infinite;
+	   -moz-animation-iteration-count: infinite;
 }
 .hoverboard {
 	position: absolute;
@@ -248,9 +290,13 @@ video {
 .active .hoverboard {
 	display: block;
 	-webkit-animation: up-n-down 1s ease-in-out;
+	   -moz-animation: up-n-down 1s ease-in-out;
 	-webkit-animation-play-state: running;
+	   -moz-animation-play-state: running;
 	-webkit-animation-direction: alternate;
+	   -moz-animation-direction: alternate;
 	-webkit-animation-iteration-count: infinite;
+	   -moz-animation-iteration-count: infinite;
 }
 
 #hoverboard-shadow {
@@ -260,14 +306,19 @@ video {
 	left: 400px;
 	width: 500px;
 	opacity: 0.4;
+	-webkit-filter: blur(10px) brightness(0%);
+	        filter: url('filters.svg#brightness');
 }
 .active #hoverboard-shadow {
 	display: block;
-	-webkit-filter: contrast(0%) grayscale(100%) blur(30px) brightness(0%);
 	-webkit-animation: grow-n-shrink 1s ease-in-out;
+	   -moz-animation: grow-n-shrink 1s ease-in-out;
 	-webkit-animation-play-state: running;
+	   -moz-animation-play-state: running;
 	-webkit-animation-direction: alternate;
+	   -moz-animation-direction: alternate;
 	-webkit-animation-iteration-count: infinite;
+	   -moz-animation-iteration-count: infinite;
 }
 #hoverboard {
 	display: none;
@@ -279,9 +330,13 @@ video {
 .active #hoverboard {
 	display: block;
 	-webkit-animation: up-n-down 1s ease-in-out;
+	   -moz-animation: up-n-down 1s ease-in-out;
 	-webkit-animation-play-state: running;
+	   -moz-animation-play-state: running;
 	-webkit-animation-direction: alternate;
+	   -moz-animation-direction: alternate;
 	-webkit-animation-iteration-count: infinite;
+	   -moz-animation-iteration-count: infinite;
 }
 #xerox_slide img {
 	width: 800px;
@@ -289,6 +344,7 @@ video {
 	box-shadow: 0 0 100px rgba(0,0,0,0.5);
 	opacity: 0;
 	-webkit-animation: fadein 2s ease-in 0.5s forwards;
+	   -moz-animation: fadein 2s ease-in 0.5s forwards;
 }
 #xerox_slide div {
 	position: relative;
@@ -304,6 +360,7 @@ video {
 	width: 130px;
 	margin-top: -7px;
 	-webkit-filter: grayscale(100%);
+	        filter: url('filters.svg#grayscale');
 	box-shadow: 0 0 100px rgba(0,0,0,0.3);
 }
 
@@ -319,9 +376,13 @@ video {
 	margin-left: 5px;
 	background: red;
 	-webkit-animation: up-n-down 1s ease-in-out;
+	   -moz-animation: up-n-down 1s ease-in-out;
 	-webkit-animation-play-state: running;
+	  -moz-animation-play-state: running;
 	-webkit-animation-direction: alternate;
+	   -moz-animation-direction: alternate;
 	-webkit-animation-iteration-count: infinite;
+	   -moz-animation-iteration-count: infinite;
 }
 
 /* `visibility */
@@ -330,15 +391,40 @@ video {
 .opacity-three-quarter { opacity: 0.75; }
 
 /* `animations */
-.active .x.delay0-5 { -webkit-animation-delay:    0.5s; }
-.active .x.delay0   { -webkit-animation-delay:    0s;   }
-.active .x.delay1   { -webkit-animation-delay:    1s;   }
-.active .x.delay1-5 { -webkit-animation-delay:    1.5s; }
-.active .x.delay2   { -webkit-animation-delay:    2s;   }
-.active .x.delay3   { -webkit-animation-delay:    3s;   }
-.active .x.speed2   { -webkit-animation-duration: 1s;   }
+.active .x.delay0-5 {
+	-webkit-animation-delay: 0.5s;
+	   -moz-animation-delay: 0.5s;
+}
+.active .x.delay0   {
+	-webkit-animation-delay: 0s;
+	   -moz-animation-delay: 0s;
+}
+.active .x.delay1   {
+	-webkit-animation-delay: 1s;
+	   -moz-animation-delay: 1s;
+}
+.active .x.delay1-5 {
+	-webkit-animation-delay: 1.5s;
+	   -moz-animation-delay: 1.5s;
+}
+.active .x.delay2   {
+	-webkit-animation-delay: 2s;
+	   -moz-animation-delay: 2s;
+}
+.active .x.delay3   {
+	-webkit-animation-delay: 3s;
+	   -moz-animation-delay: 3s;
+}
+.active .x.speed2   {
+	-webkit-animation-duration: 1s;
+	   -moz-animation-duration: 1s;
+}
 
 @-webkit-keyframes fadein {
+	0%   { opacity: 0; }
+	100% { opacity: 1; }
+}
+@-moz-keyframes fadein {
 	0%   { opacity: 0; }
 	100% { opacity: 1; }
 }
@@ -346,17 +432,33 @@ video {
 	0%   { opacity: 1; }
 	100% { opacity: 0; }
 }
+@-moz-keyframes fadeout {
+	0%   { opacity: 1; }
+	100% { opacity: 0; }
+}
 @-webkit-keyframes zoomout {
 	0%   { -webkit-transform: scale(1.3) }
 	100% { -webkit-transform: scale(1);  }
+}
+@-moz-keyframes zoomout {
+	0%   { -moz-transform: scale(1.3) }
+	100% { -moz-transform: scale(1);  }
 }
 @-webkit-keyframes zoomin {
 	0%   { -webkit-transform: scale(1); }
 	100% { -webkit-transform: scale(1.5) translateX(180px) translateY(100px); }
 }
+@-moz-keyframes zoomin {
+	0%   { -moz-transform: scale(1); }
+	100% { -moz-transform: scale(1.5) translateX(180px) translateY(100px); }
+}
 @-webkit-keyframes shift-left {
 	0%   { -webkit-transform: translateX(20px); }
 	100% { -webkit-transform: translateX(0px); }
+}
+@-moz-keyframes shift-left {
+	0%   { -moz-transform: translateX(20px); }
+	100% { -moz-transform: translateX(0px); }
 }
 @-webkit-keyframes zoomout-text {
 	0%   {
@@ -368,16 +470,39 @@ video {
 		-webkit-transform: rotateZ(-2deg) translateY(-400px) translateZ(-200px);
 	}
 }
+@-moz-keyframes zoomout-text {
+	0%   {
+		opacity: 1;
+		-moz-transform: translateY(0px) translateZ(0px);
+	}
+	100% {
+		opacity: 0;
+		-moz-transform: rotateZ(-2deg) translateY(-400px) translateZ(-200px);
+	}
+}
 @-webkit-keyframes zoomout-bomber {
 	0%   { -webkit-transform: rotateZ(10deg) rotateX(5deg) translateY(350px) translateZ(100px); }
 	10%  { -webkit-transform: rotateX(0deg) translateY(0px) translateZ(-30px); }
 	100% { -webkit-transform: translateY(-50px) translateZ(-150px); }
 }
+@-moz-keyframes zoomout-bomber {
+	0%   { -moz-transform: rotateZ(10deg) rotateX(5deg) translateY(350px) translateZ(100px); }
+	10%  { -moz-transform: rotateX(0deg) translateY(0px) translateZ(-30px); }
+	100% { -moz-transform: translateY(-50px) translateZ(-150px); }
+}
 @-webkit-keyframes up-n-down {
 	0%   { -webkit-transform: translateY(-5px); }
 	100% { -webkit-transform: translateY(15px);  }
 }
+@-moz-keyframes up-n-down {
+	0%   { -moz-transform: translateY(-5px); }
+	100% { -moz-transform: translateY(15px);  }
+}
 @-webkit-keyframes grow-n-shrink {
 	0%   { -webkit-transform: scale(1.2); }
 	100% { -webkit-transform: scale(1);   }
+}
+@-moz-keyframes grow-n-shrink {
+	0%   { -moz-transform: scale(1.2); }
+	100% { -moz-transform: scale(1);   }
 }
